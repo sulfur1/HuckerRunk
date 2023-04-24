@@ -1,4 +1,4 @@
-package AlgorithmsAndDateStructure.task21;
+package AlgorithmsAndDateStructure.task1_30.task21;
 
 import java.io.*;
 import java.math.*;

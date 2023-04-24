@@ -1,4 +1,4 @@
-package AlgorithmsAndDateStructure.task10;
+package AlgorithmsAndDateStructure.task1_30.task10;
 
 import java.io.*;
 
