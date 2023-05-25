@@ -22,8 +22,17 @@ class Result {
      */
 
     public static int utopianTree(int n) {
-        // Write your code here
-        return 0;
+        if (n == 0) return 1;
+        int result = 1;
+
+        for (int i = 1; i <= n; i++) {
+            if ((i & 1) == 0) {
+                result += 1;
+            } else {
+                result <<= 1;
+            }
+        }
+        return result;
     }
 
 }
@@ -34,20 +43,20 @@ public class Solution {
         //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int t = Integer.parseInt(bufferedReader.readLine().trim());
-
+        List<Integer> list = new ArrayList<>();
         IntStream.range(0, t).forEach(tItr -> {
             try {
                 int n = Integer.parseInt(bufferedReader.readLine().trim());
 
                 int result = Result.utopianTree(n);
-                System.out.println(result);
+                list.add(result);
                /* bufferedWriter.write(String.valueOf(result));
                 bufferedWriter.newLine();*/
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
-
+        list.forEach(System.out::println);
         bufferedReader.close();
         //bufferedWriter.close();
     }
