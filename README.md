@@ -1,1 +1,1 @@
-Всем привет! Здесь я выкладываю свои решенные задачи с HuckerRank. 
+Hi all! Here I post my solved problems with HuckerRank.
