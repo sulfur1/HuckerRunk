@@ -1,14 +1,8 @@
-package AlgorithmsAndDateStructure.data_structures.task1_30.task6;
+package AlgorithmsAndDateStructure.data_structures.arrays.task6;
 
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
 import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -26,7 +20,7 @@ class Result1 {
     // Rework solution with help
     // https://brokensandals.net/technical/programming-challenges/hackerrank-array-manipulation/
     // and
-    // https://programs.programmingoneonone.com/2021/03/hackerrank-array-manipulation-solution.html
+    // https://programs.programmingoneonone.com/2021/03/hackerrank-array-manipulation-solution.htm
     public static long arrayManipulation(int n, List<List<Integer>> queries) {
 
         Map<Long, Long> map = new HashMap<>();
