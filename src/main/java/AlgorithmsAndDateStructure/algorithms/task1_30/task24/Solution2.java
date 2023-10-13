@@ -27,20 +27,19 @@ class Result2 {
     public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
         List<Integer> result = new ArrayList<Integer>();
 
-        List<Integer> rankedList = new ArrayList<Integer>();
         TreeSet<Integer> set = new TreeSet<Integer>(ranked);
-        rankedList.addAll(set);
+        List<Integer> rankedList = new ArrayList<Integer>(set);
 
         int count = rankedList.size();
 
         outerLoop:
-        for (int i = 0; i < rankedList.size(); i++) {
+        for (Integer integer : rankedList) {
             int j = 0;
 
-            while (rankedList.get(i) > player.get(j)) {
+            while (integer > player.get(j)) {
                 result.add(count + 1);
                 player.remove(j);
-                if (player.size() == 0) {
+                if (player.isEmpty()) {
                     break outerLoop;
                 }
             }

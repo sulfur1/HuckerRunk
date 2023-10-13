@@ -27,23 +27,20 @@ class Result {
     // Write your code here
 // Write your code here
         List<Integer> playerRank = new ArrayList<>();
-
+        ranked.sort((integer, anotherInteger) -> anotherInteger.compareTo(integer));
+        /*Set<Integer> rankedSet = new TreeSet<>((integer, anotherInteger) -> anotherInteger.compareTo(integer));
+        rankedSet.addAll(ranked);*/
         label:
-        for (int i = 0; i < player.size(); i++) {
-            int currentRankPlayer = player.get(i);
+        for (int currentRankPlayer : player) {
+            Set<Integer> rankedSet = new TreeSet<>();
+
             int rank = 1;
-            for (int j = 0; j < ranked.size(); ) {
-                int currentPlayersRank = ranked.get(j);
+            for (int currentPlayersRank : rankedSet) {
                 if (currentRankPlayer >= currentPlayersRank) {
                     playerRank.add(rank);
                     continue label;
                 } else {
                     rank++;
-                    j++;
-                    while (j < ranked.size() && currentPlayersRank == ranked.get(j)) {
-                        j++;
-                    }
-
                 }
             }
             playerRank.add(rank);
@@ -56,7 +53,7 @@ class Result {
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         int rankedCount = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -71,16 +68,16 @@ public class Solution {
             .collect(toList());
 
         List<Integer> result = Result.climbingLeaderboard(ranked, player);
-
-        bufferedWriter.write(
+        result.forEach(System.out::println);
+        /*bufferedWriter.write(
             result.stream()
                 .map(Object::toString)
                 .collect(joining("\n"))
             + "\n"
-        );
+        );*/
 
         bufferedReader.close();
-        bufferedWriter.close();
+        //bufferedWriter.close();
     }
 }
 
