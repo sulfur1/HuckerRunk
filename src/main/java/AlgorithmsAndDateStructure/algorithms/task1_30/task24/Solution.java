@@ -24,16 +24,33 @@ class Result {
      */
 
     public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
-    // Write your code here
-// Write your code here
         List<Integer> playerRank = new ArrayList<>();
-        ranked.sort((integer, anotherInteger) -> anotherInteger.compareTo(integer));
-        /*Set<Integer> rankedSet = new TreeSet<>((integer, anotherInteger) -> anotherInteger.compareTo(integer));
-        rankedSet.addAll(ranked);*/
+
+        TreeSet<Integer> rankedSet = new TreeSet<>(ranked);
+        List<Integer> listRank= new ArrayList<>(rankedSet);
+        int count = rankedSet.size();
+        label:
+        for (int currentRank : listRank) {
+            while (currentRank > player.get(0)) {
+                playerRank.add(count + 1);
+                player.remove(0);
+                if (player.isEmpty()) break label;
+            }
+            count--;
+        }
+        for (Integer p : player) {
+            playerRank.add(1);
+        }
+        return playerRank;
+    }
+
+    /*public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
+        // Write your code here
+        List<Integer> playerRank = new ArrayList<>();
+        Set<Integer> rankedSet = new TreeSet<>((integer, anotherInteger) -> anotherInteger.compareTo(integer));
+        rankedSet.addAll(ranked);
         label:
         for (int currentRankPlayer : player) {
-            Set<Integer> rankedSet = new TreeSet<>();
-
             int rank = 1;
             for (int currentPlayersRank : rankedSet) {
                 if (currentRankPlayer >= currentPlayersRank) {
@@ -46,7 +63,9 @@ class Result {
             playerRank.add(rank);
         }
         return playerRank;
-    }
+
+    }*/
+
 
 }
 

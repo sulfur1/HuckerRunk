@@ -73,7 +73,7 @@ public class Solution2 {
                 .collect(toList());
 
         List<Integer> result = Result2.climbingLeaderboard(ranked, player);
-
+        result.forEach(System.out::println);
         /*bufferedWriter.write(
                 result.stream()
                         .map(Object::toString)
